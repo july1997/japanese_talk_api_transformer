@@ -18,13 +18,13 @@ services:
       context: ./query_server/
       dockerfile: ./Dockerfile
     volumes:
-      - ./model:/app/data
-      - ./conversation_ja:/app/t2t-usr
+      - ./model:/Users/makoto/work/dataset
+      - ./my_problem:/Users/makoto/work/problem
     links:
       - model-server:model
     ports:
       - "5000:5000"
-    command: bash -c "t2t-query-server --server=model:8500 --servable_name=q_and_a --problem=conversation_ja --data_dir=/app/data --t2t_usr_dir=/app/t2t-usr"
+    command: bash -c "t2t-query-server --server=model:8500 --servable_name=q_and_a --problem=my_problem --data_dir=/Users/makoto/work/dataset --t2t_usr_dir=/Users/makoto/work/problem"
     logging:
       driver: "json-file"
       options:
