@@ -6,8 +6,8 @@ RUN apt-get update && apt install -y git \
 
 COPY requirements.txt /tmp/
 RUN pip install -r /tmp/requirements.txt
-VOLUME /Users/makoto/work/problem
-VOLUME /Users/makoto/work/dataset
+VOLUME /app/data
+VOLUME /app/t2t-usr
 
 RUN pip install pandas
 
